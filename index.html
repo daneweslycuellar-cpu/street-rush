@@ -7,138 +7,132 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Street Rush">
-<meta name="theme-color" content="#1b1033">
-<title>STREET RUSH: City</title>
+<meta name="theme-color" content="#0d1222">
+<title>STREET RUSH: Open City</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="icon" type="image/png" href="icon-192.png">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{width:100%;height:100%;overflow:hidden;background:#1b1033;color:#fff;
- font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
- -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:none;overscroll-behavior:none}
+html,body{width:100%;height:100%;overflow:hidden;background:#0d1222;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:none;overscroll-behavior:none}
 canvas#c{position:fixed;inset:0;display:block;touch-action:none;width:100%;height:100%}
 .hidden{display:none!important}
 button{font:inherit;color:#fff;border:0;cursor:pointer;touch-action:none}
-#loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;letter-spacing:2px;background:#1b1033;z-index:50}
-.screen{background:radial-gradient(ellipse at center,rgba(10,20,40,.25),rgba(8,12,24,.75))!important}
-.screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:30;text-align:center;
- padding:calc(env(safe-area-inset-top) + 16px) 18px calc(env(safe-area-inset-bottom) + 16px);background:radial-gradient(ellipse at center,rgba(27,16,51,.45),rgba(12,6,24,.88))}
-.logo{font-size:clamp(50px,16vw,92px);line-height:.88;font-weight:900;font-style:italic;letter-spacing:-2px;
- background:linear-gradient(180deg,#ffe066,#ff7b00 55%,#ff006e);-webkit-background-clip:text;background-clip:text;color:transparent;
- filter:drop-shadow(0 6px 0 #3a0a5e);transform:skew(-6deg)}
+#loading{position:fixed;inset:0;display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;font-weight:900;font-size:20px;letter-spacing:2px;background:#0d1222;z-index:60}
+.screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:30;text-align:center;padding:calc(env(safe-area-inset-top) + 14px) 16px calc(env(safe-area-inset-bottom) + 14px);background:radial-gradient(ellipse at center,rgba(10,16,32,.35),rgba(6,8,18,.85))}
+.logo{font-size:clamp(50px,16vw,92px);line-height:.88;font-weight:900;font-style:italic;letter-spacing:-2px;background:linear-gradient(180deg,#ffe066,#ff7b00 55%,#ff006e);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 0 #3a0a5e);transform:skew(-6deg)}
 .sub{font-weight:900;letter-spacing:6px;color:#7af0ff;margin-top:-6px}
-.big{background:linear-gradient(180deg,#ffbe0b,#ff7b00);border-radius:20px;padding:18px 50px;font-size:26px;font-weight:900;
- box-shadow:0 6px 0 #9a3c00,0 10px 30px rgba(255,123,0,.45);color:#2b1100;letter-spacing:1px;touch-action:manipulation}
+.big{background:linear-gradient(180deg,#ffbe0b,#ff7b00);border-radius:20px;padding:16px 46px;font-size:24px;font-weight:900;box-shadow:0 6px 0 #9a3c00,0 10px 30px rgba(255,123,0,.45);color:#2b1100;letter-spacing:1px;touch-action:manipulation}
 .big:active{transform:translateY(4px);box-shadow:0 2px 0 #9a3c00}
-.btn{background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.25);border-radius:14px;padding:11px 16px;font-weight:800;font-size:15px;touch-action:manipulation}
-.panel{background:rgba(30,14,56,.95);border:2px solid rgba(255,255,255,.15);border-radius:22px;padding:16px;width:min(440px,100%);max-height:80vh;text-align:left}
+.btn{background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.25);border-radius:14px;padding:10px 14px;font-weight:800;font-size:14px;touch-action:manipulation}
+.panel{background:rgba(18,16,34,.96);border:2px solid rgba(255,255,255,.14);border-radius:22px;padding:14px;width:min(460px,100%);max-height:74vh;text-align:left}
 .scroll{overflow-y:auto;-webkit-overflow-scrolling:touch;touch-action:pan-y}
-.panel h2{font-size:26px;font-weight:900;font-style:italic;margin-bottom:8px}
+.panel h2{font-size:24px;font-weight:900;font-style:italic;margin-bottom:6px}
 .panel p{margin:7px 0;line-height:1.4;font-weight:600;font-size:15px}
 .sec{font-size:12px;letter-spacing:2px;opacity:.6;font-weight:800;margin:12px 0 8px}
 .item{display:flex;align-items:center;gap:10px;padding:10px;border-radius:14px;background:rgba(255,255,255,.06);margin-bottom:8px}
-.item .sw{width:40px;height:26px;border-radius:7px;flex:none}
-.item .nm{flex:1;font-weight:800}.item .nm small{display:block;opacity:.65;font-weight:600;font-size:12px}
-.item button{padding:9px 12px;border-radius:11px;font-weight:800;font-size:14px;background:#ffbe0b;color:#2b1100;min-width:86px;touch-action:manipulation}
-.item button.go{background:#38e07b;color:#022b12}
+.item .av{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex:none;background:rgba(255,255,255,.1)}
+.item .nm{flex:1;font-weight:800;font-size:15px}.item .nm small{display:block;opacity:.7;font-weight:600;font-size:12px;margin-top:2px}
+.item button{padding:9px 12px;border-radius:11px;font-weight:800;font-size:13px;background:#ffbe0b;color:#2b1100;min-width:78px;touch-action:manipulation}
+.item button.go{background:#38e07b;color:#022b12}.item button.red{background:#ff6b6b;color:#2b0000}
 .item button:disabled{background:rgba(255,255,255,.15);color:rgba(255,255,255,.5)}
-.row{display:flex;gap:8px;flex-wrap:wrap}
-/* HUD */
+.tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:8px;touch-action:pan-x}
+.tab{padding:8px 11px;border-radius:12px;background:rgba(255,255,255,.08);font-weight:800;font-size:13px;white-space:nowrap;touch-action:manipulation}
+.tab.on{background:#ffbe0b;color:#2b1100}
+.bar{height:8px;background:rgba(255,255,255,.15);border-radius:4px;overflow:hidden;margin-top:4px}.bar i{display:block;height:100%;background:#38e07b}
 #hud{position:fixed;inset:0;pointer-events:none;z-index:10}
-#topL{position:absolute;left:12px;top:calc(env(safe-area-inset-top) + 10px);display:flex;gap:8px;align-items:center}
-#menuBtn{pointer-events:auto;width:46px;height:46px;border-radius:14px;background:rgba(0,0,0,.45);font-size:22px}
-#cashBox{background:rgba(0,0,0,.45);border-radius:14px;padding:6px 12px;font-weight:900}
-#cash{font-size:22px;color:#7dff9b;font-variant-numeric:tabular-nums}
-#coinsTxt{font-size:12px;opacity:.85;color:#ffd60a}
-#map{position:absolute;right:12px;top:calc(env(safe-area-inset-top) + 10px);width:120px;height:120px;border-radius:50%;border:3px solid rgba(255,255,255,.7);background:rgba(20,20,30,.6);box-shadow:0 4px 14px rgba(0,0,0,.4)}
-#mission{position:absolute;left:50%;transform:translateX(-50%);top:calc(env(safe-area-inset-top) + 64px);background:rgba(0,0,0,.55);border-radius:14px;padding:8px 14px;font-weight:800;font-size:15px;text-align:center;max-width:62vw}
-#mission b{color:#ffd60a;font-size:20px;display:block}
-#speed{position:absolute;left:calc(30px + env(safe-area-inset-left));bottom:calc(env(safe-area-inset-bottom) + 176px);font-weight:900;font-size:26px;font-style:italic;text-shadow:0 2px 6px rgba(0,0,0,.7)}
-#speed small{font-size:13px;opacity:.8}
-#toast{position:absolute;left:50%;top:32%;transform:translate(-50%,-50%);font-size:26px;font-weight:900;font-style:italic;text-align:center;
- text-shadow:0 3px 0 rgba(0,0,0,.5),0 0 18px rgba(0,0,0,.5);opacity:0;transition:opacity .25s;width:90vw}
-#joy{position:absolute;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,.12);border:3px solid rgba(255,255,255,.35);
- left:calc(30px + env(safe-area-inset-left));bottom:calc(env(safe-area-inset-bottom) + 34px);transform:translate(0,0)}
-#knob{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(255,255,255,.75);box-shadow:0 3px 10px rgba(0,0,0,.4)}
-#btns{position:absolute;right:calc(16px + env(safe-area-inset-right));bottom:calc(env(safe-area-inset-bottom) + 26px);width:190px;height:190px;pointer-events:none}
-.gbtn{position:absolute;pointer-events:auto;border-radius:50%;font-weight:900;color:#fff;background:rgba(0,0,0,.45);border:3px solid rgba(255,255,255,.6);
- display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.05;font-size:13px;letter-spacing:.5px}
-.gbtn.down{transform:scale(.92);background:rgba(255,255,255,.35)}
-#bA{width:84px;height:84px;right:0;bottom:0;background:rgba(255,123,0,.65);font-size:15px}
-#bB{width:66px;height:66px;right:96px;bottom:4px}
-#bC{width:78px;height:78px;right:6px;bottom:100px;background:rgba(56,224,123,.7);color:#022b12;border-color:#fff}
-#tut{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.62);border-radius:18px;padding:14px 18px;font-weight:700;font-size:15px;line-height:1.55;width:min(340px,86vw);text-align:left}
+#topL{position:absolute;left:10px;top:calc(env(safe-area-inset-top) + 8px);display:flex;gap:8px;align-items:flex-start}
+#menuBtn{pointer-events:auto;width:44px;height:44px;border-radius:14px;background:rgba(0,0,0,.5);font-size:21px}
+#stat{background:rgba(0,0,0,.5);border-radius:14px;padding:6px 10px;min-width:132px}
+#cash{font-size:20px;font-weight:900;color:#7dff9b;font-variant-numeric:tabular-nums}
+#hpBar{height:6px;width:110px;background:rgba(255,255,255,.18);border-radius:3px;overflow:hidden;margin:3px 0}#hpBar i{display:block;height:100%;background:#ff4d5e;transition:width .15s}
+#rank{font-size:11px;font-weight:800;color:#ffd166;display:flex;align-items:center;gap:6px}#xpBar{flex:1;height:4px;background:rgba(255,255,255,.15);border-radius:2px;overflow:hidden}#xpBar i{display:block;height:100%;background:#ffd166}
+#stars{position:absolute;right:8px;top:calc(env(safe-area-inset-top) + 148px);font-size:23px;letter-spacing:2px;text-shadow:0 2px 6px rgba(0,0,0,.8);white-space:nowrap}
+#stars .on{color:#fff}#stars .off{color:rgba(255,255,255,.18)}#stars.flash .on{animation:fl .5s infinite}
+@keyframes fl{50%{opacity:.25}}
+#map{position:absolute;right:10px;top:calc(env(safe-area-inset-top) + 8px);width:118px;height:118px;border-radius:50%;border:3px solid rgba(255,255,255,.75);box-shadow:0 4px 14px rgba(0,0,0,.4)}
+#clock{position:absolute;right:10px;top:calc(env(safe-area-inset-top) + 130px);width:118px;text-align:center;font-size:12px;font-weight:800;text-shadow:0 1px 4px #000}
+#obj{position:absolute;left:50%;transform:translateX(-50%);top:calc(env(safe-area-inset-top) + 42px);background:rgba(0,0,0,.6);border-radius:12px;padding:7px 12px;font-weight:800;font-size:14px;text-align:center;max-width:56vw;line-height:1.3}
+#obj b{color:#ffd60a}
+#district{position:absolute;left:0;right:0;top:33%;text-align:center;font-size:34px;font-weight:900;font-style:italic;letter-spacing:1px;opacity:0;transition:opacity .6s;text-shadow:0 3px 12px rgba(0,0,0,.8)}
+#toasts{position:absolute;left:50%;transform:translateX(-50%);top:calc(env(safe-area-inset-top) + 150px);display:flex;flex-direction:column;align-items:center;gap:6px;width:92vw}
+.toast{background:rgba(0,0,0,.65);border-radius:12px;padding:7px 13px;font-weight:900;font-size:15px;animation:tin .25s;text-align:center}
+@keyframes tin{from{transform:translateY(-8px);opacity:0}}
+#big{position:absolute;left:0;right:0;top:40%;transform:translateY(-50%);text-align:center;pointer-events:none;opacity:0;transition:opacity .4s}
+#big .t{font-size:54px;font-weight:900;font-style:italic;letter-spacing:2px;text-shadow:0 4px 0 rgba(0,0,0,.6),0 0 30px rgba(0,0,0,.6)}
+#big .s{font-size:18px;font-weight:800;margin-top:4px;text-shadow:0 2px 6px #000}
+#dmg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,0,0,0) 45%,rgba(200,0,0,.6));opacity:0}
+#dialog{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom) + 236px);width:min(440px,92vw);background:rgba(10,10,20,.9);border:2px solid rgba(255,255,255,.18);border-radius:16px;padding:10px 12px;display:flex;gap:10px;align-items:flex-start;pointer-events:auto}
+#dialog .av{font-size:30px;line-height:1}#dialog .who{font-weight:900;font-size:13px;color:#ffd166}#dialog .txt{font-weight:700;font-size:15px;line-height:1.35}
+#choices{display:flex;flex-direction:column;gap:8px;position:absolute;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom) + 120px);width:min(420px,90vw);pointer-events:auto;z-index:2}
+#choices button{background:#ffbe0b;color:#2b1100;font-weight:900;padding:13px;border-radius:14px;font-size:15px;touch-action:manipulation}
+#prog{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom) + 240px);width:220px;text-align:center;font-weight:900;text-shadow:0 2px 5px #000}
+#prog .bar{height:12px;border-radius:6px}#prog .bar i{background:#ffd60a}
+#speed{position:absolute;left:calc(26px + env(safe-area-inset-left));bottom:calc(env(safe-area-inset-bottom) + 176px);font-weight:900;font-size:26px;font-style:italic;text-shadow:0 2px 6px rgba(0,0,0,.7)}
+#speed small{font-size:12px;opacity:.8}#nitro{width:110px;height:6px;background:rgba(255,255,255,.2);border-radius:3px;overflow:hidden;margin-top:2px}#nitro i{display:block;height:100%;background:#4cc9ff}
+#joy{position:absolute;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,.1);border:3px solid rgba(255,255,255,.32);left:calc(26px + env(safe-area-inset-left));bottom:calc(env(safe-area-inset-bottom) + 30px)}
+#knob{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:rgba(255,255,255,.75);box-shadow:0 3px 10px rgba(0,0,0,.4)}
+#btns{position:absolute;right:calc(12px + env(safe-area-inset-right));bottom:calc(env(safe-area-inset-bottom) + 22px);width:200px;height:220px;pointer-events:none}
+.gbtn{position:absolute;pointer-events:auto;border-radius:50%;font-weight:900;color:#fff;background:rgba(0,0,0,.45);border:3px solid rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.05;font-size:12px;letter-spacing:.5px}
+.gbtn.down{transform:scale(.92);filter:brightness(1.4)}
+#bA{width:86px;height:86px;right:0;bottom:0;background:rgba(230,57,70,.7);font-size:15px}
+#bB{width:62px;height:62px;right:96px;bottom:2px}
+#bD{width:62px;height:62px;right:12px;bottom:96px;background:rgba(76,201,255,.45)}
+#bC{width:74px;height:74px;right:90px;bottom:78px;background:rgba(56,224,123,.85);color:#022b12;border-color:#fff;font-size:12px}
+#tut{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);background:rgba(0,0,0,.72);border-radius:18px;padding:14px 16px;font-weight:700;font-size:14px;line-height:1.55;width:min(340px,88vw);text-align:left}
 #tut b{color:#ffd60a}
 .ver{position:absolute;bottom:calc(env(safe-area-inset-bottom) + 8px);font-size:11px;opacity:.5}
 </style>
 </head>
 <body>
-<div id="loading">LOADING CITY…</div>
-
+<div id="loading"><div>BUILDING THE CITY…</div><div style="font-size:12px;opacity:.6;letter-spacing:1px">STREET RUSH</div></div>
 <div id="hud" class="hidden">
- <div id="topL"><button id="menuBtn" aria-label="Menu">☰</button><div id="cashBox"><div id="cash">$0</div><div id="coinsTxt">Coins 0/40</div></div></div>
- <canvas id="map" width="240" height="240"></canvas>
- <div id="mission" class="hidden"></div>
- <div id="speed" class="hidden">0 <small>KM/H</small></div>
- <div id="toast"></div>
+ <div id="dmg"></div>
+ <div id="topL"><button id="menuBtn" aria-label="Phone">📱</button>
+  <div id="stat"><div id="cash">$0</div><div id="hpBar"><i style="width:100%"></i></div><div id="rank"><span id="rankTxt">R1</span><div id="xpBar"><i style="width:0%"></i></div></div></div></div>
+ <div id="stars" class="hidden"></div>
+ <canvas id="map" width="236" height="236"></canvas>
+ <div id="clock"></div>
+ <div id="obj" class="hidden"></div>
+ <div id="district"></div>
+ <div id="toasts"></div>
+ <div id="big"><div class="t"></div><div class="s"></div></div>
+ <div id="speed" class="hidden"><span id="spd">0</span> <small>KM/H</small><div id="nitro"><i style="width:100%"></i></div></div>
+ <div id="prog" class="hidden"><div id="progTxt">Emptying the register…</div><div class="bar"><i style="width:0%"></i></div></div>
+ <div id="dialog" class="hidden"><div class="av"></div><div><div class="who"></div><div class="txt"></div></div></div>
+ <div id="choices" class="hidden"></div>
  <div id="joy"><div id="knob"></div></div>
  <div id="btns">
-  <button id="bA" class="gbtn">JUMP</button>
+  <button id="bA" class="gbtn">PUNCH</button>
   <button id="bB" class="gbtn">RUN</button>
-  <button id="bC" class="gbtn hidden">ENTER<br>CAR</button>
+  <button id="bD" class="gbtn">JUMP</button>
+  <button id="bC" class="gbtn hidden">ENTER</button>
  </div>
  <div id="tut" class="hidden">
-  🕹️ <b>Left side:</b> drag to move<br>
-  👆 <b>Right side:</b> drag to look around<br>
-  🚗 Walk up to any car and tap <b>ENTER CAR</b><br>
-  🟨 Yellow beams = <b>delivery jobs</b><br>
-  🟩 Green beam = <b>street race</b><br>
-  🪙 40 gold coins are hidden around the city<br>
-  <span style="opacity:.7">(tap anywhere to close)</span>
+  🕹️ <b>Left side:</b> drag to move · <b>Right side:</b> drag to look<br>
+  👊 <b>PUNCH</b> anyone. 🚗 Walk to any car → <b>ENTER</b> (drivers get yanked out!)<br>
+  🚨 Crimes earn <b>stars</b>. Break line of sight to escape, or hit a <b>Paint &amp; Body</b> shop.<br>
+  🔥 In a car: <b>BRAKE</b> to drift, <b>NITRO</b> to fly, hit the <b>yellow ramps</b>.<br>
+  📱 Your phone has contacts with jobs. <b>Something is always happening</b> — go look.<br>
+  <span style="opacity:.7">(tap to start)</span>
  </div>
 </div>
-
 <div id="start" class="screen hidden">
  <div class="logo">STREET<br>RUSH</div>
  <div class="sub">OPEN CITY</div>
- <div id="startInfo" style="font-weight:700;opacity:.85"></div>
+ <div id="startInfo" style="font-weight:700;opacity:.9;max-width:320px"></div>
  <button id="playBtn" class="big">PLAY</button>
- <div class="row" style="justify-content:center"><button id="helpBtn" class="btn">❓ HOW TO PLAY</button><button id="muteBtn" class="btn">🔊 SOUND ON</button></div>
+ <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><button id="muteBtn" class="btn">🔊 SOUND ON</button><button id="resetBtn" class="btn">↺ New game</button></div>
  <div class="ver" id="ver"></div>
 </div>
-
 <div id="phone" class="screen hidden">
- <div class="panel scroll">
-  <div style="display:flex;justify-content:space-between;align-items:center"><h2>📱 PHONE</h2><div style="font-weight:900;color:#7dff9b;font-size:20px" id="pCash">$0</div></div>
-  <div id="pMission"></div>
-  <div class="sec">GARAGE — BUY &amp; CALL YOUR CAR</div>
-  <div id="garage"></div>
-  <div class="sec">STATS</div>
-  <div id="stats" style="font-weight:700;line-height:1.6;opacity:.9"></div>
-  <div class="sec">OPTIONS</div>
-  <div class="row"><button id="pMute" class="btn">🔊 Sound</button><button id="pRespawn" class="btn">📍 Go to start</button><button id="pQuality" class="btn">✨ Graphics</button><button id="pHelp" class="btn">❓ Help</button></div>
+ <div class="panel">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><h2 style="margin:0">📱 PHONE</h2><div style="font-weight:900;color:#7dff9b;font-size:19px" id="pCash">$0</div></div>
+  <div class="tabs" id="tabs"></div>
+  <div id="pBody" class="scroll" style="max-height:56vh"></div>
  </div>
- <button id="pClose" class="big">RESUME</button>
+ <button id="pClose" class="big">BACK TO THE STREETS</button>
 </div>
-
-<div id="help" class="screen hidden">
- <div class="panel scroll">
-  <h2>HOW TO PLAY</h2>
-  <p>🕹️ <b>Move:</b> touch and drag on the left side of the screen.</p>
-  <p>👆 <b>Look around:</b> drag on the right side.</p>
-  <p>🏃 On foot: <b>JUMP</b> and hold <b>RUN</b>.</p>
-  <p>🚗 Walk next to any car (parked or driving) and tap <b>ENTER CAR</b>. In a car, push the stick up to drive, down to brake/reverse, left/right to steer. <b>BRAKE</b> = handbrake for drifting, <b>HORN</b> = beep.</p>
-  <p>🟨 <b>Delivery jobs:</b> step into a yellow beam, then reach the drop-off before time runs out. Faster = more cash.</p>
-  <p>🟩 <b>Street race:</b> drive into the green beam and hit every checkpoint. Beat your best time!</p>
-  <p>🪙 <b>40 hidden coins</b> are worth $25 each.</p>
-  <p>📱 Tap ☰ to open your phone: buy cars and call them to you, see stats, or go back to the start.</p>
-  <p>💾 Progress saves automatically on this device.</p>
-  <p>⌨️ Computer: WASD/arrows move, mouse drag looks, Space jump/brake, Shift run, E enter/exit, H horn, M menu.</p>
- </div>
- <button id="helpBack" class="big">GOT IT</button>
-</div>
-
-<script type="module" src="game.js?v=3.0.0"></script>
+<script type="module" src="game.js?v=4.0.0"></script>
 </body>
 </html>
