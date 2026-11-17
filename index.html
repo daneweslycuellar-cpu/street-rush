@@ -21,6 +21,7 @@ canvas#c{position:fixed;inset:0;display:block;touch-action:none;width:100%;heigh
 .hidden{display:none!important}
 button{font:inherit;color:#fff;border:0;cursor:pointer;touch-action:none}
 #loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;letter-spacing:2px;background:#1b1033;z-index:50}
+.screen{background:radial-gradient(ellipse at center,rgba(10,20,40,.25),rgba(8,12,24,.75))!important}
 .screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:30;text-align:center;
  padding:calc(env(safe-area-inset-top) + 16px) 18px calc(env(safe-area-inset-bottom) + 16px);background:radial-gradient(ellipse at center,rgba(27,16,51,.45),rgba(12,6,24,.88))}
 .logo{font-size:clamp(50px,16vw,92px);line-height:.88;font-weight:900;font-style:italic;letter-spacing:-2px;
@@ -116,7 +117,7 @@ button{font:inherit;color:#fff;border:0;cursor:pointer;touch-action:none}
   <div class="sec">STATS</div>
   <div id="stats" style="font-weight:700;line-height:1.6;opacity:.9"></div>
   <div class="sec">OPTIONS</div>
-  <div class="row"><button id="pMute" class="btn">🔊 Sound</button><button id="pRespawn" class="btn">📍 Go to start</button><button id="pHelp" class="btn">❓ Help</button></div>
+  <div class="row"><button id="pMute" class="btn">🔊 Sound</button><button id="pRespawn" class="btn">📍 Go to start</button><button id="pQuality" class="btn">✨ Graphics</button><button id="pHelp" class="btn">❓ Help</button></div>
  </div>
  <button id="pClose" class="big">RESUME</button>
 </div>
@@ -138,6 +139,6 @@ button{font:inherit;color:#fff;border:0;cursor:pointer;touch-action:none}
  <button id="helpBack" class="big">GOT IT</button>
 </div>
 
-<script type="module" src="game.js?v=2.0.0"></script>
+<script type="module" src="game.js?v=3.0.0"></script>
 </body>
 </html>

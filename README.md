@@ -16,5 +16,5 @@ Progress saves in the browser's localStorage.
 
 ## Updating
 1. Edit `src/main.js` (and `index.html` for the HUD/menus). Bump `VERSION` in `src/main.js` and the `?v=` in index.html.
-2. Rebuild: `npx esbuild src/main.js --bundle --minify --format=esm --target=safari15 --outfile=game.js`
+2. Rebuild: `npx esbuild src/main.js --bundle --minify --format=esm --target=safari15 --alias:three=./lib/three.module.js --outfile=game.js`
 3. Commit and push to `main`. GitHub Pages republishes in about a minute. The phone menu shows the version.
